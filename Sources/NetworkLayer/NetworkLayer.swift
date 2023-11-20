@@ -3,9 +3,9 @@
 
 import Foundation
 
-protocol DecodableModel: Decodable {}
+public protocol DecodableModel: Decodable {}
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case invalidURL
     case noData
     case decodingError
@@ -13,11 +13,11 @@ enum NetworkError: Error {
 }
 
 public class NetworkManager {
-    static let shared = NetworkManager()
+    public static let shared = NetworkManager()
 
     public init() {}
 
-    func fetch<T: DecodableModel>(from urlString: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    public func fetch<T: DecodableModel>(from urlString: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidURL))
             return
