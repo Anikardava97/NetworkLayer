@@ -12,7 +12,7 @@ enum NetworkError: Error {
     case other(Error)
 }
 
-class NetworkManager {
+public class NetworkManager {
     static let shared = NetworkManager()
 
     private init() {}
